@@ -63,6 +63,15 @@ subprojects {
             palantirJavaFormat("2.38.0")
         }
     }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        testLogging.showExceptions = true
+        reports {
+            junitXml.required.set(true)
+            html.required.set(true)
+        }
+    }
 }
 
 tasks {
